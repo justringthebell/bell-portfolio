@@ -1,26 +1,231 @@
-@import "tailwindcss";
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;*/
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #111;
+}
+
+@layer utilities {
+  .hover-scale {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.1);
+  }
+  
+  .section-transition {
+    animation: fadeInUp 1s ease forwards;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.typing-cursor {
+  border-right: 3px solid currentColor;
+  animation: blink 0.7s step-end infinite;
+}
+
+/* Education Section Styles */
+.edu-section {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.edu-section h2 {
+  font-size: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  text-transform: none;
+  letter-spacing: 1px;
+}
+
+.edu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+}
+
+.edu-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 1000px;
+  gap: 2rem;
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.edu-card:hover {
+  transform: scale(1.03);
+}
+
+.edu-img {
+  flex: 1;
+  text-align: center;
+  min-width: 300px;
+}
+
+.edu-img img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 10px;
+  background: #ddd;
+}
+
+.edu-info {
+  flex: 1;
+  text-align: left;
+  min-width: 300px;
+}
+
+.edu-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #111;
+}
+
+.edu-info p {
+  font-size: 1rem;
+  color: #333;
+  text-align: justify;
+}
+
+.hidden-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+  padding: 25px;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.hidden-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.edu-card:hover .hidden-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #5a5959;
+    color: #f9f9f9;
+  }
+
+  .edu-card {
+    background: #4b4a4a;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+  }
+
+  .edu-info h3 {
+    color: #fff;
+  }
+
+  .edu-info p {
+    color: #ddd;
+  }
+
+  .hidden-card {
+    background: rgba(54, 54, 54, 0.9);
+    color: #f0f0f0;
+  }
+
+  .edu-section h2 {
+    color: #fff;
+  }
+}
+
+/* Expertise Container - 2 columns */
+.expertise-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.expertise-card {
+  width: 45%;
+  min-width: 320px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .edu-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .edu-info {
+    text-align: center;
+  }
+
+  .edu-img {
+    min-width: 200px;
+  }
+
+  .expertise-card {
+    width: 100%;
+  }
 }
