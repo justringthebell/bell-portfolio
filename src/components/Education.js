@@ -74,7 +74,7 @@ function EducationCard({ edu, index }) {
 
 export default function Education() {
   return (
-    <section className="section-transition pt-24 px-8 pb-12">
+    <section className="section-transition pt-32 px-8 pb-12">
       <div className="edu-section">
         <h2>My Educational Background</h2>
         <div className="edu-container">

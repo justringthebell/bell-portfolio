@@ -1,11 +1,10 @@
-
 import Image from 'next/image'
 
 export default function PersonalInfo() {
   return (
-    <section className="section-transition pt-24 px-8 pb-8">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-6">About Me</h2>
+    <section className="section-transition pt-32 px-8 pb-12">
+      <div className="edu-section">
+        <h2>About Me</h2>
         <Image
           src="/images/profile.jpg"
           alt="Bell Anton"
@@ -13,8 +12,8 @@ export default function PersonalInfo() {
           height={230}
           className="rounded mx-auto mb-4"
         />
-        <h4 className="text-2xl font-semibold mb-4">Hi! I am Bell Anton</h4>
-        <div className="text-lg text-justify space-y-4">
+        <h4 className="text-2xl font-semibold mb-6 text-black dark:text-white">Hi! I am Bell Anton</h4>
+        <div className="personal-info-text">
           <p>
             I am <strong>Bell Anton Parola Mahometano</strong>, a third-year Bachelor of Science in 
             Computer Science student at <strong>Partido State University</strong>. I currently live on 

@@ -80,7 +80,7 @@ function ExpertiseCard({ skill, index }) {
 
 export default function Expertise() {
   return (
-    <section className="section-transition pt-24 px-8 pb-12">
+    <section className="section-transition pt-32 px-8 pb-12">
       <div className="edu-section">
         <h2>My Expertise</h2>
         <div className="expertise-container">

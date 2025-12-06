@@ -39,7 +39,7 @@ export default function Hero({ setActiveSection }) {
   }, [charIndex, isDeleting, textIndex])
 
   return (
-    <section className="section-transition pt-24 px-8 pb-8">
+    <section className="section-transition pt-32 px-8 pb-8">
       {/* Main Section with Profile and Education */}
       <div className="flex flex-wrap justify-between items-center gap-8 max-w-7xl mx-auto mb-12">
         {/* Profile Section */}
@@ -58,7 +58,7 @@ export default function Hero({ setActiveSection }) {
           </h2>
           <button
             onClick={() => setActiveSection('personal-info')}
-            className="mt-2 text-base md:text-lg hover:underline transition-all text-black dark:text-white"
+            className="hero-more-btn mt-2 text-base md:text-lg font-bold hover:underline transition-all text-black dark:text-white"
           >
             more
           </button>
@@ -79,7 +79,7 @@ export default function Hero({ setActiveSection }) {
                 className="hover-scale w-[80%] h-auto object-contain rounded-2xl"
               />
             </div>
-            <h2 className="text-lg md:text-xl font-bold mt-4">
+            <h2 className="hero-heading text-lg md:text-xl font-bold mt-4">
               About my Educational Background
             </h2>
           </div>
@@ -97,10 +97,10 @@ export default function Hero({ setActiveSection }) {
             alt="Expertise"
             width={700}
             height={200}
-            className="mx-auto hover-scale rounded-lg w-[80%] max-w-[700px] mb-4"
+            className="mx-auto hover-scale rounded-lg w-[80%] max-w-[700px] mb-6"
           />
-          <h2 className="text-xl md:text-2xl font-bold mt-4 mb-2">Expertise</h2>
-          <p className="text-base md:text-lg max-w-3xl mx-auto text-justify px-4">
+          <h2 className="hero-heading text-2xl font-bold mb-6">Expertise</h2>
+          <p className="expertise-text text-lg">
             These are some of the areas in which I possess a basic level of knowledge and understanding. 
             While my expertise in these topics is still developing, I have gained enough familiarity to 
             grasp fundamental concepts and engage in introductory discussions. I am also eager to continue 

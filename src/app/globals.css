@@ -1,11 +1,6 @@
 @import "tailwindcss/preflight";
 @import "tailwindcss/utilities";
 
-/* 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;*/
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,6 +12,85 @@ body {
   line-height: 1.6;
   background-color: #fff;
   color: #111;
+}
+
+/* Personal Info section styling - same as education */
+.personal-info-card {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.personal-info-image {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.personal-info-image img {
+  border-radius: 4px;
+}
+
+.personal-info-text {
+  max-width: 800px !important;
+  margin: 0 auto !important;
+  text-align: justify !important;
+  padding: 0 2rem !important;
+  line-height: 1.8 !important;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.personal-info-text p {
+  margin-bottom: 1.5rem !important;
+  font-size: 1rem;
+  color: #333;
+}
+
+.personal-info-card h4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .personal-info-text p {
+    color: #ddd;
+  }
+}
+
+/* Make specific texts extra bold */
+.hero-more-btn {
+  font-weight: 700 !important;
+  font-size: 1.125rem !important;
+}
+
+.hero-heading {
+  font-weight: 700 !important;
+}
+
+/* Header - Make solid, not transparent */
+header {
+  background-color: #fff !important;
+  backdrop-filter: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+nav {
+  gap: 2rem !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  header {
+    background-color: #5a5959 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
 }
 
 @layer utilities {
@@ -44,6 +118,10 @@ body {
   }
 }
 
+.animate-fadeIn {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
 @keyframes blink {
   50% {
     border-color: transparent;
@@ -53,6 +131,15 @@ body {
 .typing-cursor {
   border-right: 3px solid currentColor;
   animation: blink 0.7s step-end infinite;
+}
+
+/* Expertise paragraph - centered and clean */
+.expertise-text {
+  max-width: 800px !important;
+  margin: 0 auto !important;
+  text-align: justify !important;
+  padding: 0 2rem !important;
+  line-height: 1.8 !important;
 }
 
 /* Education Section Styles */
@@ -148,19 +235,33 @@ body {
   padding: 25px;
   border-radius: 12px;
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.4s ease;
+  transition: opacity 0.3s ease;
   pointer-events: none;
 }
 
 .hidden-card.visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .edu-card:hover .hidden-card {
   opacity: 1;
-  transform: translateY(0);
+}
+
+/* Expertise Container - 2 columns */
+.expertise-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.expertise-card {
+  width: 45%;
+  min-width: 320px;
 }
 
 /* Dark Mode */
@@ -193,21 +294,57 @@ body {
   }
 }
 
-/* Expertise Container - 2 columns */
-.expertise-container {
+/* Contact Container - 4 columns in a row */
+.contact-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 1rem;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
-.expertise-card {
-  width: 45%;
-  min-width: 320px;
+.contact-card {
+  width: 23%;
+  min-width: 250px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.contact-img {
+  margin-bottom: 1rem;
+  min-width: auto;
+}
+
+.contact-img img {
+  max-width: 120px;
+  width: 100%;
+}
+
+.contact-info {
+  text-align: center;
+  min-width: auto;
+}
+
+.contact-link {
+  text-decoration: none;
+  color: inherit;
+  width: 23%;
+  min-width: 250px;
+}
+
+.hidden-card p {
+  text-align: center;
 }
 
 /* Mobile Responsive */
@@ -227,5 +364,14 @@ body {
 
   .expertise-card {
     width: 100%;
+  }
+  
+  .contact-card,
+  .contact-link {
+    width: 100%;
+  }
+  
+  .expertise-text {
+    padding: 0 1rem !important;
   }
 }
